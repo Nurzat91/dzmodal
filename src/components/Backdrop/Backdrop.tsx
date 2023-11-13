@@ -1,7 +1,7 @@
 import React from 'react';
 interface Props{
   show: boolean;
-  onClick: React.ReactNode;
+  onClick:  React.MouseEvent;
 }
 
 const Backdrop: React.FC<Props> = ({show, onClick}) => {

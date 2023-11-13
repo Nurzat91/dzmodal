@@ -4,7 +4,7 @@ import Backdrop from '../Backdrop/Backdrop';
 interface Props extends React.PropsWithChildren{
   show: boolean;
   title: string;
-  onClose: React.ReactNode;
+  onClose:  () => void;
 }
 
 const Modal: React.FC<Props> = ({show, title, onClose, children}) => {

@@ -1,8 +1,11 @@
 import React from 'react';
-import {Movie} from '../../types';
+import {Props} from '../../types';
 
+interface MovieProps extends Props {
+  onOpenModal: () => void;
+}
 
-const Movie: React.FC<Movie> = ({id, image, title, year, genre }) => {
+const Movie: React.FC<MovieProps> = ({id, image, title, year, genre, onOpenModal }) => {
   return (
     <>
       <div key={id} className="col">
@@ -17,6 +20,8 @@ const Movie: React.FC<Movie> = ({id, image, title, year, genre }) => {
               <strong>Genre:</strong> {genre}
             </p>
           </div>
+          <button className="btn btn-primary" onClick={onOpenModal}>information:
+          </button>
         </div>
       </div>
     </>
