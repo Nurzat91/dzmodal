@@ -15,10 +15,10 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
   const [showAlert, setShowAlert] = useState<AlertProps[]>([
-    {id: 1, title: ' All movie cards have been removed '},
+    {id: 1, title: 'I go on too many dates. But I cant make em stay. At least thats what people say, mm-mm'},
   ]);
   const [showAlert2] = useState<AlertProps[]>([
-    {id: 2, title: ' All movie cards have been removed '},
+    {id: 2, title: ' I stay out too late. Got nothin in my brain. Thats what people say, mm-mm. Thats what people say, mm-mm '},
   ]);
   const openModal = () => {
       setShowModal(true);
@@ -31,11 +31,15 @@ function App() {
     setShowAlert(deleteMovies);
   };
    const handleContinue = () => {
-     alert('Continue clicked');
+     const maxId = Math.max(...showAlert.map(alert => alert.id), 0);
+     closeModal();
+     setShowAlert((prevAlerts) => [
+         ...prevAlerts,
+         { id: maxId + 1,  title: "Thats what people say, mm-mm"},
+     ]);
    };
 
    const handleClose = () => {
-     alert('Close clicked');
      closeModal();
    };
 

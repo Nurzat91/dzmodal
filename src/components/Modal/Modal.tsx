@@ -11,9 +11,6 @@ interface Props extends React.PropsWithChildren{
 
 const Modal: React.FC<Props> = ({show, title, onClose, children, buttons }) => {
 
-  if (!show) {
-    return null;
-  }
 
   return (
     <>
@@ -26,19 +23,19 @@ const Modal: React.FC<Props> = ({show, title, onClose, children, buttons }) => {
               <button type="button" className="btn-close" onClick={onClose as React.MouseEventHandler<HTMLButtonElement>}></button>
             </div>
             {children}
-          </div>
-          <div className="modal-footer">
-            {buttons &&
-              buttons.map((button, index) => (
-                <button
-                  key={index}
-                  type="button"
-                  className={`btn btn-${button.type}`}
-                  onClick={button.onClick}
-                >
-                  {button.label}
-                </button>
-              ))}
+            <div className="modal-footer">
+              {buttons &&
+                buttons.map((button, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className={`btn btn-${button.type}`}
+                    onClick={button.onClick}
+                  >
+                    {button.label}
+                  </button>
+                ))}
+            </div>
           </div>
         </div>
       </div>
