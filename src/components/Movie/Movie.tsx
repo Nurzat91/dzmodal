@@ -3,10 +3,9 @@ import {MovieProps} from '../../types';
 
 interface Props extends MovieProps {
   onOpenModal: () => void;
-  closeCard: () => void;
 }
 
-const Movie: React.FC<Props> = ({id, image, title, year, genre, onOpenModal, closeCard }) => {
+const Movie: React.FC<Props> = ({id, image, title, year, genre, onOpenModal }) => {
   return (
     <>
       <div key={id} className="col">
@@ -22,7 +21,6 @@ const Movie: React.FC<Props> = ({id, image, title, year, genre, onOpenModal, clo
             </p>
           </div>
           <button className="btn btn-outline-info" onClick={onOpenModal}>information:</button>
-          <button className="btn btn-light mt-2" onClick={closeCard}>Delete</button>
         </div>
       </div>
     </>
