@@ -1,7 +1,7 @@
 import React from 'react';
 interface Props{
   show: boolean;
-  onClick:  React.MouseEvent;
+  onClick: React.MouseEventHandler<HTMLDivElement> | (() => void);
 }
 
 const Backdrop: React.FC<Props> = ({show, onClick}) => {
@@ -9,7 +9,7 @@ const Backdrop: React.FC<Props> = ({show, onClick}) => {
     <div
       className="modal-backdrop show"
       style={{display: show ? "block": "none"}}>
-      onClick={onClick}
+      onClick={onClick as React.MouseEventHandler<HTMLDivElement> | (() => void)}
     </div>
   );
 };
